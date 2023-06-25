@@ -10,34 +10,20 @@ networks:
     driver: bridge
 
 services:
-  desafio-nest:
-    build: .
+  app:
+    image: fabiohsgomes/desafio02-nest
     ports:
       - 3000:3000
-      - 5555:5555
-    volumes:
-      - .:/workspace/app
     networks:
       - desafio_nest
     depends_on:
-      - db
-      
+      - db 
   db:
     image: bitnami/mongodb:5.0.17
     volumes:
       - mongodb_data:/bitnami/mongodb
     environment:
       MONGODB_ROOT_PASSWORD: root
-      MONGODB_REPLICA_SET_MODE: primary
-      MONGODB_REPLICA_SET_KEY: 123456
       MONGODB_DATABASE: nest
     networks:
       - desafio_nest
-# //Linux ou Mac
-# /etc/hosts
-
-# 127.0.0.1 host.docker.internal
-
-# //Windows
-# C:\Windows\system32\drivers\etc\hosts (bloco de notas como administrador)
-# 127.0.0.1 host.docker.internal
