@@ -1,6 +1,6 @@
 ## Desafio Fullcycle Nest
 
-Para subir os container da api nest e do banco mondodb, executar o comando abaixo:
+Para subir os containers da api nest e do banco mongodb, é só executar o comando abaixo na raiz do projeto:
 ``` bash
 docker compose -f ./.docker/docker-compose.yml up
 ```
